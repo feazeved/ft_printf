@@ -6,7 +6,7 @@
 /*   By: feazeved <feazeved@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 18:33:55 by feazeved          #+#    #+#             */
-/*   Updated: 2025/05/05 02:29:42 by feazeved         ###   ########.fr       */
+/*   Updated: 2025/05/08 04:46:08 by feazeved         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,15 @@ static int	ft_hex_m(unsigned char flag, int wid, int prec, unsigned long ad)
 	int	count;
 
 	count = 0;
-	if ((flag & FLAG_HASH) && ad)
-		count += ft_putstr(0, 0, -1, "0x");
+	if ((flag & FLAG_HASH) && ad && (flag & FLAG_UPPER))
+		count += write(1, "0X", 2);
+	else if ((flag & FLAG_HASH) && ad)
+		count += write(1, "0x", 2);
 	if (prec != -1)
 		count += ft_padding(prec - ft_hex_len(ad), '0');
-	if (prec != 0 || ad)
+	if ((prec != 0 || ad) && (flag & FLAG_UPPER))
+		count += ft_write_hex(ad, "0123456789ABCDEF");
+	else if (prec != 0 || ad)
 		count += ft_write_hex(ad, "0123456789abcdef");
 	count += ft_padding(wid - count, ' ');
 	return (count);
@@ -52,10 +56,15 @@ static int	ft_hex_z(unsigned char flag, int wid, unsigned long ad)
 	int	count;
 
 	count = 0;
-	if ((flag & FLAG_HASH) && ad)
-		count += ft_putstr(0, 0, -1, "0x");
+	if ((flag & FLAG_HASH) && ad && (flag & FLAG_UPPER))
+		count += write(1, "0X", 2);
+	else if ((flag & FLAG_HASH) && ad)
+		count += write(1, "0x", 2);
 	count += ft_padding(wid - count - ft_hex_len(ad), '0');
-	count += ft_write_hex(ad, "0123456789abcdef");
+	if (flag & FLAG_UPPER)
+		count += ft_write_hex(ad, "0123456789ABCDEF");
+	else
+		count += ft_write_hex(ad, "0123456789abcdef");
 	return (count);
 }
 
@@ -70,11 +79,15 @@ static int	ft_hex_r(unsigned char flag, int wid, int prec, unsigned long ad)
 		count += ft_padding(wid - count - ft_hex_len(ad), ' ');
 	else
 		count += ft_padding(wid - count - prec, ' ');
-	if ((flag & FLAG_HASH) && ad)
-		ft_putstr(0, 0, -1, "0x");
+	if ((flag & FLAG_HASH) && ad && (flag & FLAG_UPPER))
+		write(1, "0X", 2);
+	else if ((flag & FLAG_HASH) && ad)
+		write(1, "0x", 2);
 	if (prec != -1)
 		count += ft_padding(prec - ft_hex_len(ad), '0');
-	if (prec != 0 || ad)
+	if ((prec != 0 || ad) && (flag & FLAG_UPPER))
+		count += ft_write_hex(ad, "0123456789ABCDEF");
+	else if (prec != 0 || ad)
 		count += ft_write_hex(ad, "0123456789abcdef");
 	return (count);
 }

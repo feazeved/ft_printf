@@ -6,7 +6,7 @@
 /*   By: feazeved <feazeved@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 06:53:10 by feazeved          #+#    #+#             */
-/*   Updated: 2025/05/06 19:05:03 by feazeved         ###   ########.fr       */
+/*   Updated: 2025/05/08 04:44:22 by feazeved         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@
 # define FLAG_HASH 4
 # define FLAG_SPACE 8
 # define FLAG_PLUS 16
+# define FLAG_UPPER 32
 
 int		ft_hex_len(unsigned long nbr);
 int		ft_printf(const char *str, ...);
 uint8_t	ft_flags(const char **str);
 int		ft_padding(int len, char c);
 int		ft_put_hex(uint8_t flag, int width, int precision, uint64_t ad);
-int		ft_put_uhex(uint8_t flag, int width, int precision, uint64_t ad);
 int		ft_putchar(uint8_t flag, int width, int c);
 int		ft_putnum(uint8_t flag, int width, int precision, int nbr);
 int		ft_putpointer(uint8_t flag, int width, void *ptr);

@@ -6,7 +6,7 @@
 #    By: feazeved <feazeved@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/01 00:04:54 by feazeved          #+#    #+#              #
-#    Updated: 2025/05/05 02:06:17 by feazeved         ###   ########.fr        #
+#    Updated: 2025/05/08 04:44:14 by feazeved         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,6 @@ ft_write_number.c \
 ft_putnum.c \
 ft_putstr.c \
 ft_put_hex.c \
-ft_put_uhex.c \
 ft_write_hex.c \
 ft_putpointer.c \
 ft_specifier.c \

@@ -6,7 +6,7 @@
 /*   By: feazeved <feazeved@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 18:37:46 by feazeved          #+#    #+#             */
-/*   Updated: 2025/05/05 02:24:08 by feazeved         ###   ########.fr       */
+/*   Updated: 2025/05/08 18:27:32 by feazeved         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_specifier(const char **str, unsigned char flag, va_list args)
 	else if (**str == 'x')
 		return (ft_put_hex(flag, wid, prec, va_arg(args, unsigned int)));
 	else if (**str == 'X')
-		return (ft_put_uhex(flag, wid, prec, va_arg(args, unsigned int)));
+		return (ft_put_hex(flag + 32, wid, prec, va_arg(args, unsigned int)));
 	else if (**str == '%')
 		return (ft_putchar(0, 0, 37));
 	return (0);
