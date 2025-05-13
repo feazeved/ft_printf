@@ -6,7 +6,7 @@
 /*   By: feazeved <feazeved@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 06:28:47 by feazeved          #+#    #+#             */
-/*   Updated: 2025/05/04 00:02:15 by feazeved         ###   ########.fr       */
+/*   Updated: 2025/05/13 20:06:05 by feazeved         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	ft_printf(const char *str, ...)
 	va_list			args;
 	unsigned char	flag;
 
+	if (!str)
+		return (-1);
 	count = 0;
 	va_start(args, str);
 	while (*str)
